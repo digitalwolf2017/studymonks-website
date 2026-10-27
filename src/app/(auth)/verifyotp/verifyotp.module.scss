@@ -1,0 +1,239 @@
+/* ================================
+   SHARED WRAPPER / CARD (same as login/forgot)
+================================ */
+
+.wrapper {
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+  padding: 32px;
+  background: #f5f6ff;
+}
+
+.card {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 0;
+  width: 100%;
+  max-width: 1040px;
+  border-radius: 48px;
+  overflow: hidden;
+  background: #ffffff;
+  box-shadow: 0 40px 98px rgba(20, 49, 27, 0.12);
+  border: 1px solid rgba(12, 20, 32, 0.08);
+
+  @media (max-width:600px) {
+    border-radius: 20px;
+  }
+}
+
+@media (min-width: 981px) {
+  .card {
+    min-height: 600px;
+  }
+}
+
+/* ================================
+   LEFT PANEL (same as forgot-password)
+================================ */
+
+.left {
+  position: relative;
+  background: #0f1f13;
+  color: #f4f8f4;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 48px;
+
+  @media (max-width:600px) {
+    border-radius: 0px;
+  }
+}
+
+.heroImage {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.heroImage :global(img) {
+  object-fit: cover;
+}
+
+.left::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(200deg, rgba(4, 12, 5, 0.2), rgba(10, 24, 12, 0.85));
+  z-index: 2;
+}
+
+.assetLogo {
+  position: absolute;
+  right: 30px;
+  top: 38px;
+  z-index: 10;
+}
+
+.backgroundblendImg {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  background-blend-mode: soft-light;
+}
+
+.taglineText {
+  position: absolute;
+  width: 300px;
+  height: initial;
+  bottom: 30px;
+  right: 30px;
+  opacity: 1;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-style: medium;
+  font-size: 30px;
+  line-height: 120%;
+  letter-spacing: 0%;
+  color: #FFFFFF;
+  z-index: 10;
+  text-align: right;
+
+  @media (max-width:600px) {
+    font-size: 20px;
+    max-width: 200px;
+  }
+}
+
+/* ================================
+   RIGHT PANEL
+================================ */
+
+.right {
+  padding: 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 600;
+  color: #14311b;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  font-size: 16px;
+  color: #646161;
+  margin-bottom: 28px;
+
+  @media (max-width:600px) {
+    text-align: center;
+  }
+}
+
+/* OTP BOXES */
+.otpContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+
+  @media (max-width:600px) {
+    gap: 6px;
+  }
+}
+
+.otpBox {
+  width: 46px;
+  height: 54px;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  font-size: 20px;
+  text-align: center;
+  outline: none;
+  transition: 0.2s ease;
+  background-color: transparent;
+  color: #000;
+
+  @media (max-width:600px) {
+    width: 36px;
+    height: 44px;
+  }
+}
+
+.otpBox:focus {
+  border-color: #14311b;
+  box-shadow: 0 0 0 3px rgba(20, 49, 27, 0.15);
+}
+
+/* Resend Text */
+.resend {
+  text-align: center;
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+/* Button */
+.primaryBtn {
+  background: #14311b;
+  color: #fff;
+  border: none;
+  padding: 14px 24px;
+  border-radius: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 8px;
+  box-shadow: 0 18px 35px rgba(20, 49, 27, 0.2);
+  transition: 0.2s ease;
+  border: 0;
+}
+
+.primaryBtn:hover {
+  background: #0f2614;
+  transform: translateY(-1px);
+}
+
+/* Back to login */
+.backToLogin {
+  margin-top: 20px;
+  text-align: center;
+  color: #7aa171;
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+/* Responsive */
+@media (max-width: 980px) {
+  .card {
+    grid-template-columns: 1fr;
+  }
+
+  .left {
+    min-height: 320px;
+  }
+
+  .right {
+    padding: 32px;
+  }
+}
+
+@media (max-width: 560px) {
+  .wrapper {
+    padding: 16px;
+  }
+
+  .title {
+    font-size: 28px;
+  }
+
+  .right {
+    padding: 24px;
+  }
+}

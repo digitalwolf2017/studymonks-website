@@ -1,0 +1,234 @@
+@use "../../_styles/global" as *;
+
+.innerWrapper {
+    width: 100%;
+    padding: 50px 20px;
+    min-height: calc(100svh - 78px);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+
+    @media (max-width:600px) {
+        min-height: calc(100svh - 59px);
+        padding: 20px 20px 50px;
+    }
+
+    .innerContainer {
+        width: 100%;
+        max-width: 1200px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 40px;
+
+        @media (max-width:600px) {
+            gap: 20px;
+        }
+
+        .homeWrokWrapper {
+            width: 100%;
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            flex-direction: column;
+            gap: 20px;
+
+            .sectionHeading {
+                width: 100% !important;
+                font-size: 24px !important;
+                font-weight: 700 !important;
+                color: $primary;
+                text-transform: capitalize !important;
+                text-align: left;
+                margin: 0 !important;
+                line-height: initial !important;
+                font-family: $fontLato, sans-serif;
+
+                span {
+                    text-transform: uppercase !important;
+                }
+            }
+
+            .homeWorkCont {
+                width: 100%;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 50px;
+
+                @media (max-width:600px) {
+                    grid-template-columns: 1fr;
+                    gap: 20px;
+                }
+
+                .itemWrapper {
+                    width: 100%;
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: flex-start;
+                    flex-direction: column;
+                    gap: 20px;
+
+                    h2 {
+                        font-size: 18px;
+                        color: $primary;
+                        font-weight: 700;
+                        margin: 0;
+                    }
+
+                    .uploadWrap {
+                        width: 100%;
+                        display: flex;
+                        justify-content: flex-start;
+                        align-items: flex-start;
+                        flex-direction: column;
+                        gap: 20px;
+
+                        @media (max-width:600px) {
+                            flex-direction: row;
+                            gap: 10px;
+                        }
+
+                        .mainUploadCard {
+                            width: 100px;
+                            height: 120px;
+                            border-radius: 12px;
+                            border: solid 1px rgba($color: $black, $alpha: 0.2);
+                            position: relative;
+                            z-index: 10;
+                            background-color: $white;
+                            @extend .flexcenter;
+                            overflow: hidden;
+
+                            @media (max-width:600px) {
+                                width: 60px;
+                                height: 90px;
+                            }
+
+                            input {
+                                width: 100%;
+                                height: 100%;
+                                position: absolute;
+                                z-index: -1px;
+                                opacity: 0;
+                                cursor: pointer !important;
+                            }
+
+                            span {
+                                font-size: 12px;
+                                color: $black;
+                                font-weight: 400;
+                            }
+                        }
+
+                        .showCardWrap {
+                            width: 100%;
+                            display: flex;
+                            justify-content: flex-start;
+                            align-items: flex-start;
+                            gap: 20px;
+                            flex-wrap: wrap;
+
+                            @media (max-width:600px) {
+                                width: calc(100% - 70px);
+                                height: 90px;
+                            }
+
+                            .uploadCard {
+                                position: relative;
+                                border-radius: 12px;
+                                background-color: $white;
+                                width: 120px;
+                                height: initial;
+                                padding: 10px 10px;
+                                cursor: pointer;
+                                @extend .flexcenter;
+                                transition: all .2s;
+                                border: solid 1px #f1f1f1;
+
+                                @media (max-width:600px) {
+                                    width: 100px;
+                                    padding: 5px 5px;
+                                }
+
+
+
+                                &:hover {
+                                    background-color: rgba($color: $primary, $alpha: 0.4);
+                                }
+
+                                span {
+                                    font-size: 14px;
+                                    color: $black;
+                                }
+
+                                .delBtn {
+                                    width: 20px;
+                                    height: 20px;
+                                    background-color: $red;
+                                    border-radius: 50%;
+                                    position: absolute;
+                                    top: -10px;
+                                    right: -10px;
+                                    border: 0;
+                                    outline: none;
+                                    font-size: 12px;
+                                    color: $white;
+                                    font-family: Arial, Helvetica, sans-serif;
+                                    transition: all .2s;
+
+                                    &:hover {
+                                        opacity: .7;
+                                    }
+                                }
+                            }
+                        }
+
+
+                    }
+
+                    .buttonWrap {
+                        width: 100%;
+                        display: flex;
+                        justify-content: flex-start;
+                        align-items: flex-start;
+
+                        &.typeOne {
+                            @media (max-width:600px) {
+                                display: none;
+                            }
+                        }
+
+                        &.typeTwo {
+                            display: none;
+
+                            @media (max-width:600px) {
+                                display: flex;
+                            }
+                        }
+                    }
+                }
+
+                .previewWrapper {
+                    width: 100%;
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: flex-start;
+                    flex-direction: column;
+                    gap: 20px;
+
+                    .previewDiv {
+                        width: 100%;
+                        height: initial;
+                        aspect-ratio: 1/1;
+                        background-color: $white;
+                        @extend .flexcenter;
+                        border-radius: 12px;
+
+                    }
+                }
+            }
+        }
+    }
+}

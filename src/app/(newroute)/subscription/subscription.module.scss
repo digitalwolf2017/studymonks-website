@@ -1,0 +1,476 @@
+@use "../../_styles/global.scss" as *;
+
+.innerWrapper {
+    width: 100%;
+    padding: 50px 20px;
+    min-height: calc(100svh - 78px);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+
+    @media (max-width:600px) {
+        min-height: calc(100svh - 59px);
+        padding: 20px 20px 50px;
+    }
+
+    .innerContainer {
+        width: 100%;
+        max-width: 1200px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 40px;
+
+        @media (max-width:600px) {
+            gap: 20px;
+        }
+
+        .subscriptionWrapper {
+            width: 100%;
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            flex-direction: column;
+            gap: 40px;
+
+            .subscriptionOption {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                gap: 40px;
+
+                @media (max-width:600px) {
+                    flex-direction: column;
+                    gap: 20px;
+                }
+
+                .infoWrap {
+                    width: 100%;
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: flex-start;
+                    flex-direction: column;
+                    gap: 5px;
+
+                    h1 {
+                        margin: 0;
+                    }
+
+                    p {
+                        font-size: 16px;
+                        color: rgba($color: $black, $alpha: 0.5);
+                        margin: 0;
+                    }
+                }
+
+                .selectWrap {
+                    @extend .flexcenter;
+                    gap: 20px;
+
+                    @media (max-width:600px) {
+                        gap: 10px;
+                    }
+
+                    .selectClass {
+                        width: 160px;
+                        height: 40px;
+                        border-radius: 100px;
+                        border: solid 1px $black;
+                        @extend .flexcenter;
+                        font-size: 16px;
+                        color: $black;
+                        background-color: $white;
+                        cursor: pointer;
+                        transition: all .2s;
+                        position: relative;
+
+                        &:hover {
+                            background-color: #F0F3FF;
+                        }
+
+                        &.activeClass {
+                            background-color: $primary;
+                            border-color: $primary;
+                            color: $white;
+                            opacity: 1;
+                        }
+
+                        input {
+                            position: absolute;
+                            z-index: -1;
+                        }
+
+                        &:has(input:checked) {
+                            background-color: $primary;
+                            border-color: $primary;
+                            color: $white;
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+
+            .cardWrapper {
+                width: 100%;
+                display: flex;
+                justify-content: flex-start;
+                align-items: flex-start;
+                gap: 40px;
+
+                @media (max-width:600px) {
+                    flex-direction: column;
+                    gap: 20px;
+                }
+
+                .listCard {
+                    width: calc(100% - 420px);
+                    padding: 20px;
+                    border-radius: 12px;
+                    background-color: $white;
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: flex-start;
+                    flex-direction: column;
+                    gap: 20px;
+
+                    @media (max-width:600px) {
+                        width: 100%;
+                    }
+
+                    .tabHead {
+                        width: 100%;
+                        display: flex;
+                        justify-content: flex-start;
+                        align-items: center;
+                        gap: 10px;
+
+                        button {
+                            font-size: 20px;
+                            color: #777;
+                            background-color: transparent;
+                            padding: 0;
+                            border: 0;
+                            outline: none;
+
+                            &.tabActive {
+                                color: $primary;
+                                font-weight: 700;
+                            }
+                        }
+
+                        span {
+                            color: #777;
+                        }
+                    }
+
+                    .tabBody {
+                        width: 100%;
+
+                        .tabcardHolder {
+                            width: 100%;
+                            display: flex;
+                            justify-content: flex-start;
+                            align-items: flex-start;
+                            flex-direction: column;
+                            gap: 20px;
+
+                            .tabRow {
+                                width: 100%;
+                                box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.04);
+                                background-color: $white;
+                                padding: 15px;
+                                border-radius: 12px;
+                                display: flex;
+                                justify-content: space-between;
+                                align-items: flex-start;
+                                position: relative;
+                                cursor: pointer;
+                                transition: all .2s;
+
+                                &:hover {
+                                    background-color: #F0F3FF;
+                                }
+
+                                @media (max-width:600px) {
+                                    flex-direction: column;
+                                }
+
+                                input {
+                                    position: absolute;
+                                    z-index: -1;
+                                }
+
+                                .rowInfo {
+                                    display: flex;
+                                    justify-content: space-between;
+                                    align-items: flex-start;
+                                    flex-direction: column;
+
+                                    h3 {
+                                        font-size: 18px;
+                                        color: $black;
+                                        font-weight: 700;
+                                    }
+
+                                    p {
+                                        font-size: 16px;
+                                        color: #777;
+                                        margin: 0;
+
+                                        @media (max-width:600px) {
+                                            margin-bottom: 5px;
+                                        }
+                                    }
+                                }
+
+                                .rowPrice {
+                                    @extend .flexcenter;
+                                    gap: 10px;
+
+                                    h2 {
+                                        font-size: 24px !important;
+                                        font-weight: 700;
+                                        color: $primary !important;
+                                        margin: 0;
+                                        white-space: nowrap;
+
+                                        @media (max-width:600px) {
+                                            font-size: 20px !important;
+                                        }
+                                    }
+
+                                    button {
+                                        border: 0;
+                                        outline: none;
+                                        background-color: transparent;
+                                    }
+
+                                    .selectImg {
+                                        width: 40px;
+                                        height: 40px;
+                                        object-fit: contain;
+
+                                        @media (max-width:600px) {
+                                            width: 20px;
+                                            height: 20px;
+                                        }
+
+                                        img {
+                                            width: 100%;
+                                            height: 100%;
+                                            object-fit: contain;
+
+                                            &:last-child {
+                                                display: none;
+                                            }
+
+                                            &:first-child {
+                                                display: block;
+                                            }
+                                        }
+                                    }
+                                }
+
+                                &.selected {
+                                    background-color: #F0F3FF;
+
+                                    .rowPrice {
+                                        img {
+                                            &:last-child {
+                                                display: block;
+                                            }
+
+                                            &:first-child {
+                                                display: none;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .billCard {
+                    width: 380px;
+                    border-radius: 12px;
+                    background-color: $white;
+                    padding: 20px;
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: flex-start;
+                    flex-direction: column;
+                    gap: 20px;
+
+                    @media (max-width:600px) {
+                        width: 100%;
+                    }
+
+                    h2 {
+                        width: 100%;
+                        font-size: 20px !important;
+                        font-weight: 700;
+                        color: $primary !important;
+                        text-align: left;
+                        margin: 0 !important;
+                    }
+
+                    .formList {
+                        width: 100%;
+                        display: flex;
+                        justify-content: flex-start;
+                        align-items: flex-start;
+                        flex-direction: column;
+                        gap: 10px;
+
+                        .billWrap {
+                            width: 100%;
+                            display: flex;
+                            justify-content: flex-start;
+                            align-items: flex-start;
+                            flex-direction: column;
+                            gap: 10px;
+
+                            .billRow {
+                                width: 100%;
+                                padding: 15px;
+                                background-color: #F0F3FF;
+                                border-radius: 12px;
+                                display: flex;
+                                justify-content: space-between;
+                                align-items: center;
+                                position: relative;
+
+                                .billTag {
+                                    display: flex;
+                                    justify-content: flex-start;
+                                    align-items: flex-start;
+                                    flex-direction: column;
+
+                                    h3 {
+                                        font-size: 16px;
+                                        color: $black;
+                                        font-weight: 700;
+                                        margin: 0;
+                                    }
+
+                                    p {
+                                        font-size: 12px;
+                                        color: #646161;
+                                        margin: 0;
+                                    }
+                                }
+
+                                .priceWrap {
+                                    display: flex;
+                                    justify-content: flex-end;
+                                    align-items: flex-end;
+                                    flex-direction: column;
+
+                                    h3 {
+                                        font-size: 16px;
+                                        color: $black;
+                                        font-weight: 700;
+                                        margin: 0;
+                                    }
+
+                                    p {
+                                        font-size: 12px;
+                                        color: #646161;
+                                        text-align: right;
+                                        margin: 0;
+                                    }
+                                }
+
+                                .removeBtn {
+                                    position: absolute;
+                                    background-color: transparent;
+                                    border: 0;
+                                    outline: none;
+                                    top: -10px;
+                                    right: -10px;
+                                }
+                            }
+                        }
+
+                        .subDiv {
+                            width: 100%;
+                            display: flex;
+                            justify-content: flex-start;
+                            align-items: flex-start;
+                            flex-direction: column;
+                            gap: 10px;
+                            border-top: dashed 1px #777;
+                            border-bottom: dashed 1px #777;
+                            padding: 10px 10px;
+
+                            .sumRow {
+                                width: 100%;
+                                display: flex;
+                                justify-content: space-between;
+                                align-items: center;
+                                position: relative;
+
+                                &.sumRowOffer {
+                                    h3 {
+                                        color: $green;
+                                    }
+                                }
+
+                                h3 {
+                                    font-size: 16px;
+                                    color: $black;
+                                    font-weight: 700;
+                                    margin: 0;
+                                }
+                            }
+                        }
+
+                        .totalWrap {
+                            width: 100%;
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                            position: relative;
+                            padding: 10px 10px;
+
+                            h3 {
+                                font-size: 16px;
+                                color: $primary;
+                                font-weight: 700;
+                                margin: 0;
+                            }
+                        }
+
+                        .buttonWrap {
+                            width: 100%;
+
+                            .PayBtn {
+                                width: 100%;
+                                padding: 12px 16px;
+                                border-radius: 12px;
+                                background-color: $green;
+                                color: $white;
+                                font-size: 16px;
+                                font-weight: 400;
+                                border: 0;
+                                outline: none;
+                                transition: all .2s;
+                                gap: 5px;
+                                @extend .flexcenter;
+
+                                &:hover {
+                                    background-color: $secondary;
+                                    color: $black;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

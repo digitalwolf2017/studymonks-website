@@ -1,0 +1,196 @@
+@use "../../_styles/global.scss" as *;
+
+.innerWrapper {
+    width: 100%;
+    padding: 50px 20px;
+    min-height: calc(100svh - 78px);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+
+    @media (max-width:600px) {
+        min-height: calc(100svh - 59px);
+        padding: 20px 20px 50px;
+    }
+
+    .innerContainer {
+        width: 100%;
+        max-width: 900px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 40px;
+
+        @media (max-width:600px) {
+            gap: 20px;
+        }
+
+        .subscriptionCont {
+            width: 100%;
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            gap: 40px;
+
+            @media (max-width:700px) {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .currentCard {
+                width: 100%;
+                max-width: 400px;
+                display: flex;
+                justify-content: flex-start;
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 10px;
+
+                h2 {
+                    font-size: 20px !important;
+                    color: $primary !important;
+                    margin: 0 !important;
+                }
+
+
+            }
+
+            .previousWrap {
+                width: 100%;
+                display: flex;
+                justify-content: flex-start;
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 10px;
+
+                h2 {
+                    font-size: 20px !important;
+                    color: $primary !important;
+                    margin: 0 !important;
+                }
+
+                .tableWrap {
+                    width: 100%;
+
+                    table {
+                        width: 100%;
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+
+        .smilierWrap {
+            width: 100%;
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            flex-direction: column;
+            gap: 20px;
+
+            .cradWrapper {
+                width: 100%;
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                gap: 20px;
+
+                @media (max-width:700px) {
+                    grid-template-columns: 1fr;
+                }
+            }
+        }
+
+    }
+}
+
+.planCarad {
+    width: 100%;
+    border-radius: 12px;
+    background-color: $white;
+    padding: 20px;
+    transition: all .2s;
+
+    &.activeCard {
+        background-color: $green;
+
+        .planName {
+            color: $white;
+        }
+
+        .priceText {
+            color: $white;
+        }
+
+        .dateWrap {
+
+            p {
+                color: $white;
+            }
+        }
+
+        .featuresWrap {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            margin-bottom: 20px;
+
+            li {
+                list-style: none;
+                color: $white;
+                font-size: 16px;
+
+            }
+        }
+    }
+
+    .planName {
+        font-size: 30px !important;
+        font-weight: 700px !important;
+        color: $primary;
+    }
+
+    .priceText {
+        font-size: 20px;
+        color: $black;
+    }
+
+    .dateWrap {
+        width: 100%;
+        margin-bottom: 20px;
+
+        p {
+            margin: 0;
+            color: #555;
+            font-size: 16px;
+        }
+    }
+
+    .featuresWrap {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        margin-bottom: 20px;
+
+        li {
+            list-style: none;
+            color: $black;
+            font-size: 16px;
+
+        }
+    }
+
+    .btnWrap {
+        width: 100%;
+        @extend .flexcenter;
+
+        a {
+            width: 100%;
+        }
+
+        button {
+            width: 100%;
+        }
+    }
+}

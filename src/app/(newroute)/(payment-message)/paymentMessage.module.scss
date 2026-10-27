@@ -1,0 +1,168 @@
+@use "../../_styles/global.scss" as *;
+
+.paymentPage {
+  width: 100%;
+  padding: 100px 20px;
+  background-color: $blueLite;
+  @extend .flexcenter;
+  box-sizing: border-box;
+  min-height: calc(100svh - 78px);
+
+  @media (max-width: 600px) {
+    padding: 100px 20px;
+  }
+
+  .messagecard {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 24px;
+    padding: 30px 20px;
+    background-color: $white;
+    box-sizing: border-box;
+    @extend .flexcenter;
+
+    .card {
+      max-width: 420px;
+      width: 100%;
+      border-radius: 16px;
+      text-align: center;
+      @extend .flexcenter;
+      flex-direction: column;
+
+      .icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+      }
+
+      h1 {
+        margin: 0 0 5px;
+        font-size: 26px;
+        color: #16a34a;
+        margin-bottom: 0 !important;
+        line-height: 140%;
+
+        @media (max-width:600px) {
+          font-size: 30px !important;
+          margin-bottom: 10px !important;
+        }
+      }
+
+      p {
+        margin: 0 0 24px;
+        color: $black;
+        font-size: 18px;
+        line-height: 1.5;
+
+        @media (max-width:600px) {
+          font-size: 16px !important;
+          margin-bottom: 10px !important;
+        }
+      }
+
+      .details {
+        background: $blueLite;
+        border-radius: 12px;
+        padding: 16px;
+        margin-bottom: 24px;
+        text-align: left;
+        font-size: 14px;
+        color: $black;
+        width: 100%;
+        max-width: 300px;
+
+        div {
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 8px;
+        }
+
+        .details div:last-child {
+          margin-bottom: 0;
+          font-weight: bold;
+        }
+      }
+
+      .btnDiv {
+        @extend .flexcenter;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-top: 20px;
+      }
+    }
+
+    &.faildMessage {
+      .card {
+        max-width: 420px;
+        width: 100%;
+        border-radius: 16px;
+        text-align: center;
+        @extend .flexcenter;
+        flex-direction: column;
+
+        .icon {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-bottom: 20px;
+        }
+
+        h1 {
+          margin: 0 0 5px;
+          font-size: 26px;
+          color: #ff2e27;
+          margin-bottom: 0 !important;
+          line-height: 140%;
+
+          @media (max-width:600px) {
+            font-size: 30px !important;
+            margin-bottom: 10px !important;
+          }
+        }
+
+        p {
+          margin: 0 0 24px;
+          color: $black;
+          font-size: 18px;
+          line-height: 1.5;
+
+          @media (max-width:600px) {
+            font-size: 16px !important;
+            margin-bottom: 10px !important;
+          }
+        }
+
+        .details {
+          background: $blueLite;
+          border-radius: 12px;
+          padding: 16px;
+          margin-bottom: 24px;
+          text-align: left;
+          font-size: 14px;
+          color: $black;
+          width: 100%;
+          max-width: 300px;
+
+          div {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+          }
+
+          .details div:last-child {
+            margin-bottom: 0;
+            font-weight: bold;
+          }
+        }
+
+        .btnDiv {
+          @extend .flexcenter;
+          gap: 10px;
+          flex-wrap: wrap;
+          margin-top: 20px;
+        }
+      }
+    }
+  }
+}

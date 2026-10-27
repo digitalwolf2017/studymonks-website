@@ -1,0 +1,431 @@
+@use "../../../_styles/global.scss" as *;
+
+.innerWrapper {
+  width: 100%;
+  padding: 40px 20px;
+  background: #f5f7fb;
+  display: flex;
+  justify-content: center;
+}
+
+.innerContainer {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* HEADER */
+.recordedhead {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+
+  .pageTitle {
+    font-size: 28px;
+    font-weight: 700;
+    color: #182c74;
+    margin: 0;
+  }
+}
+
+.tabButtons {
+  display: flex;
+  background: #eef2ff;
+  padding: 6px;
+  border-radius: 999px;
+
+  .tabBtn {
+    padding: 10px 28px;
+    border-radius: 999px;
+    border: none;
+    background: transparent;
+    font-size: 14px;
+    font-weight: 600;
+    color: #64748b;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover:not(.active) {
+      background: rgba(24, 44, 116, 0.1);
+    }
+
+    &.active {
+      background: #182c74;
+      color: #fff;
+      box-shadow: 0 6px 14px rgba(24, 44, 116, 0.25);
+    }
+  }
+}
+
+/* FILTER BAR */
+.filterBar {
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.dateInputs {
+  display: flex;
+  gap: 12px;
+}
+
+.inputGroup {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #fff;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 12px 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
+
+  &:focus-within {
+    border-color: #182c74;
+    box-shadow: 0 0 0 3px rgba(24, 44, 116, 0.1);
+  }
+
+  input {
+    border: none;
+    outline: none;
+    font-size: 14px;
+    background: transparent;
+    color: #374151;
+
+    &[type="date"] {
+      color: #374151;
+
+      /* Fix for Chrome/Safari date input styling */
+      &::-webkit-calendar-picker-indicator {
+        cursor: pointer;
+        opacity: 0.7;
+      }
+
+      &::-webkit-datetime-edit {
+        color: #374151;
+      }
+
+      &:invalid {
+        color: #9ca3af;
+      }
+
+      &:focus {
+        color: #182c74;
+      }
+    }
+
+    &::placeholder {
+      color: #9ca3af;
+    }
+  }
+}
+
+.searchBox {
+  background: #ffffff !important;
+  border: 2px solid #e5e7eb !important;
+  border-radius: 12px;
+  padding: 12px 16px; /* Same padding as inputGroup */
+  width: 220px; /* Fixed width to match calendar boxes */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+
+  &:focus-within {
+    border-color: #182c74 !important;
+    box-shadow: 0 0 0 3px rgba(24, 44, 116, 0.1) !important;
+  }
+
+  input {
+    border: none !important;
+    outline: none !important;
+    width: 100% !important;
+    font-size: 14px !important;
+    background: transparent !important;
+    color: #1f2937 !important;
+    caret-color: #1f2937 !important;
+    padding: 0; /* No extra padding */
+
+    &::placeholder {
+      color: #9ca3af !important;
+      opacity: 1 !important;
+    }
+
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus,
+    &:-webkit-autofill:active {
+      -webkit-box-shadow: 0 0 0 30px #ffffff inset !important;
+      box-shadow: 0 0 0 30px #ffffff inset !important;
+      -webkit-text-fill-color: #1f2937 !important;
+      background: #ffffff !important;
+    }
+  }
+}
+
+/* TABLE */
+.mainContainer {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.tableWrapper {
+  overflow-x: auto;
+}
+
+.tableHeader,
+.tableRow {
+  display: grid;
+  grid-template-columns: 0.8fr 1.5fr 3fr 1.8fr 1fr;
+  gap: 24px;
+  padding: 24px 32px;
+  min-height: 72px;
+}
+
+.tableHeader {
+  background: linear-gradient(135deg, #f8f9fc 0%, #f1f5f9 100%);
+  font-weight: 700;
+  color: #182c74;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.tableRow {
+  border-bottom: 1px solid #f1f5f9;
+  align-items: center;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: linear-gradient(135deg, #fafbff 0%, #f0f4ff 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(24, 44, 116, 0.08);
+  }
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.col {
+  display: flex;
+  align-items: center;
+  padding: 8px 0;
+}
+
+.topicText {
+  font-size: 15px;
+  font-weight: 500;
+  color: #1e293b;
+  line-height: 1.5;
+}
+
+.dateTime {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+
+  span:first-child {
+    font-weight: 600;
+    color: #1e293b;
+    font-size: 15px;
+  }
+
+  .timeText {
+    font-size: 13px;
+    color: #64748b;
+    font-weight: 500;
+  }
+}
+
+.lockedIcon {
+  font-size: 20px;
+  color: #f4b400;
+}
+
+/* BUTTONS */
+.joinLiveBtn {
+  background: linear-gradient(135deg, #ef4444, #dc2626) !important;
+  color: #fff !important;
+  border: none !important;
+  padding: 10px 20px !important;
+  border-radius: 10px !important;
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  text-decoration: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: all 0.2s ease !important;
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3) !important;
+
+  &:hover {
+    background: linear-gradient(135deg, #dc2626, #b91c1c) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 20px rgba(239, 68, 68, 0.4) !important;
+  }
+}
+
+.viewBtn {
+  background: linear-gradient(135deg, #3b82f6, #2563eb) !important;
+  color: #fff !important;
+  border: none !important;
+  padding: 10px 20px !important;
+  border-radius: 10px !important;
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  text-decoration: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: all 0.2s ease !important;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3) !important;
+
+  &:hover {
+    background: linear-gradient(135deg, #2563eb, #1d4ed8) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.4) !important;
+  }
+}
+
+.emptyState {
+  padding: 80px 40px;
+  text-align: center;
+  color: #64748b;
+
+  img {
+    margin-bottom: 20px;
+    opacity: 0.6;
+  }
+
+  p {
+    font-size: 16px;
+    margin: 0;
+  }
+}
+
+/* PAGINATION */
+.paginationFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 32px;
+  border-top: 2px solid #f1f5f9;
+  background: #fafbfc;
+}
+
+.pageInfo {
+  color: #64748b;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.pageControls {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+
+  button {
+    border: 2px solid #e2e8f0;
+    background: #fff;
+    padding: 8px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    color: #374151;
+    transition: all 0.2s ease;
+    min-width: 44px;
+
+    &:hover:not(:disabled) {
+      background: #182c74;
+      color: #fff;
+      border-color: #182c74;
+      transform: translateY(-1px);
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none;
+    }
+  }
+}
+
+.activePage {
+  background: #182c74 !important;
+  color: #fff !important;
+  border-color: #182c74 !important;
+}
+
+/* MOBILE */
+@media (max-width: 900px) {
+  .innerWrapper {
+    padding: 24px 16px;
+  }
+
+  .innerContainer {
+    gap: 24px;
+  }
+
+  .recordedhead {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 24px;
+    text-align: center;
+  }
+
+  .filterBar {
+    flex-direction: column;
+    gap: 16px;
+    align-items: stretch;
+  }
+
+  .dateInputs {
+    justify-content: center;
+  }
+
+  .searchBox {
+    min-width: 100%;
+  }
+
+  .inputGroup input[type="date"] {
+    min-height: 44px;
+  }
+
+  .tableHeader {
+    display: none;
+  }
+
+  .tableRow {
+    flex-direction: column;
+    gap: 20px;
+    padding: 24px;
+  }
+
+  .tableWrapper {
+    padding-bottom: 24px;
+  }
+
+  .paginationFooter {
+    flex-direction: column;
+    gap: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .tableHeader,
+  .tableRow {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}

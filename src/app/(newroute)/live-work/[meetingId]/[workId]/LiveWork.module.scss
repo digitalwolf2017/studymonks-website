@@ -1,0 +1,24 @@
+@use "../../../../_styles/global.scss" as *;
+
+.innerWrapper {
+  width: 100%;
+  padding: 50px 20px;
+  min-height: calc(100svh - 78px);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+
+  @media (max-width: 600px) {
+    min-height: calc(100svh - 59px);
+    padding: 20px;
+  }
+
+  .innerContainer {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+}

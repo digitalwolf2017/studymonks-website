@@ -1,0 +1,51 @@
+@use "../../_styles/global.scss" as *;
+
+.innerWrapper {
+    width: 100%;
+    padding: 50px 20px;
+    min-height: calc(100svh - 78px);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+
+    @media (max-width:600px) {
+        min-height: calc(100svh - 59px);
+        padding: 20px 20px 50px;
+    }
+
+    .innerContainer {
+        width: 100%;
+        max-width: 800px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 40px;
+
+        @media (max-width:600px) {
+            gap: 20px;
+        }
+
+        .notificationWrap {
+            width: 100%;
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            flex-direction: column;
+            gap: 15px;
+
+            &>div {
+                background-color: #fff;
+            }
+
+            &>a {
+                background-color: #fff;
+            }
+
+            &>button {
+                background-color: #fff;
+            }
+        }
+    }
+}

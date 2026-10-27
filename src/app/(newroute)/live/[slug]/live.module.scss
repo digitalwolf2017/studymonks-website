@@ -1,0 +1,45 @@
+// @import "../../../_styles/global.scss";
+@use "../../../_styles/global.scss" as *;
+
+.pageInner {
+    width: 100%;
+    padding: 50px 20px;
+    min-height: calc(100svh - 78px);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    @media (max-width:600px) {
+        min-height: calc(100svh - 59px);
+    }
+
+    .pageCont {
+        width: 100%;
+        max-width: 1200px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 20px;
+
+        .sectionHeading {
+            width: 100% !important;
+            font-size: 24px !important;
+            font-weight: 700 !important;
+            color: $primary;
+            text-transform: capitalize !important;
+            text-align: left;
+            margin: 0 !important;
+            line-height: initial !important;
+            font-family: $fontLato, sans-serif;
+
+            span {
+                text-transform: uppercase !important;
+            }
+        }
+
+        .videoCont {
+            width: 100%;
+        }
+    }
+}

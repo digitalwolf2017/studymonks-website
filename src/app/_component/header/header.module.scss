@@ -1,0 +1,356 @@
+@use "../../_styles/global.scss" as *;
+
+.navWrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  padding: 15px 30px;
+  background-color: $primary;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+
+  @media (max-width:600px) {
+    padding: 15px 20px;
+  }
+
+  .navLeftWrap {
+    width: initial;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+
+    .navLogo {
+      width: 150px;
+      height: initial;
+      filter: invert(1);
+
+      @media (max-width:600px) {
+        width: 100px;
+      }
+    }
+
+    .navigationWrap {
+      @extend .flexcenter;
+
+      @media (max-width:1300px) {
+        display: none;
+      }
+
+      .nav {
+        width: initial;
+        @extend .flexcenter;
+        gap: 20px;
+
+        .navItem {
+          font-size: 16px;
+          color: $white;
+          transition: all .2s;
+
+          &:hover {
+            opacity: .7;
+            ;
+          }
+
+          &.active {
+            color: $secondary;
+            font-weight: 700;
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+
+  .navRightWrap {
+    @extend .flexcenter;
+    gap: 20px;
+
+
+    .classDropDownWrap {
+      position: relative;
+      width: 115px;
+
+      @media (max-width:600px) {
+        width: 80px;
+      }
+
+      .classWrap {
+        width: 100%;
+        border-radius: 12px;
+        background-color: rgba($color: $white, $alpha: 0.2);
+        position: relative;
+        padding: 5px 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+
+        @media (max-width:600px) {
+          padding: 5px 5px;
+        }
+
+
+        p {
+          font-size: 16px;
+          color: $white;
+          margin: 0;
+
+          @media (max-width:600px) {
+            font-size: 13px;
+          }
+        }
+
+        .dropImg {
+          width: 16px;
+          height: 16px;
+          object-fit: contain;
+          position: absolute;
+          right: 10px;
+
+          @media (max-width:600px) {
+            right: 5px;
+          }
+        }
+      }
+
+      .classlist {
+        width: 100%;
+        position: absolute;
+        background-color: $white;
+        display: flex;
+        justify-content: center;
+        alignment-baseline: central;
+        flex-direction: column;
+        gap: 5px;
+        padding: 10px 5px;
+        box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.23);
+        border-radius: 12px;
+        display: none;
+
+        button {
+          font-size: 14px;
+          color: $black;
+          margin: 0;
+          cursor: pointer;
+          text-align: center;
+          transition: all .2s;
+          background-color: transparent;
+          border: 0;
+          outline: none;
+
+          &:hover {
+            opacity: .7;
+            background-color: rgba($color: $black, $alpha: 0.1);
+            border-radius: 5px;
+          }
+        }
+      }
+    }
+
+    .notificationWrap {
+      @extend .flexcenter;
+      position: relative;
+
+      .notiImg {
+        width: 24px;
+        height: 24px;
+        object-fit: contain;
+        position: relative;
+        z-index: 1;
+
+        @media (max-width:600px) {
+          width: 20px;
+          height: 20px;
+        }
+      }
+
+      .badge {
+        position: absolute;
+        top: -10px;
+        right: -10px;
+        z-index: 10;
+        width: 18px;
+        height: 18px;
+        background-color: #F1416C;
+        color: $white;
+        border-radius: 50%;
+        @extend .flexcenter;
+        font-size: 14px;
+
+        @media (max-width:600px) {
+          width: 15px;
+          height: 15px;
+          font-size: 12px;
+        }
+      }
+    }
+
+    .profileWrapper {
+      position: relative;
+
+      .ProfileDiv {
+        width: 48px;
+        height: 48px;
+        box-shadow: 0px 0px 0px 3px rgb(209, 209, 209) inset;
+        background-color: $white;
+        @extend .flexcenter;
+        border-radius: 50%;
+        padding: 0;
+        outline: none;
+        border: 0;
+
+        @media (max-width:600px) {
+          width: 26px;
+          height: 26px;
+        }
+
+        span {
+          font-size: 20px;
+          font-weight: 700;
+          color: rgba($color: $black, $alpha: 0.3);
+
+          @media (max-width:600px) {
+            font-size: 14px;
+          }
+        }
+      }
+
+      .floatWrap {
+        width: 250px;
+        padding: 20px 20px;
+        position: absolute;
+        z-index: 20;
+        top: 55px;
+        right: 0;
+        border-radius: 12px;
+        background-color: $white;
+        box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.23);
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 5px;
+        display: none;
+
+        p {
+          width: 100%;
+          font-size: 18px;
+          font-weight: 700;
+          color: $primary;
+          padding: 5px 0 10px;
+          border-bottom: dashed 1px rgba($color: $black, $alpha: 0.2);
+          margin: 0;
+        }
+
+        ul {
+          width: 100%;
+          padding: 0;
+          margin: 0;
+
+          li {
+            list-style: none;
+            width: 100%;
+
+            &:last-child {
+              a {
+                font-weight: 700;
+                color: $black;
+                font-size: 16px;
+              }
+            }
+
+            a {
+              font-size: 14px;
+              color: #646161;
+              padding: 5px 0;
+              width: 100%;
+              transition: all .2s;
+
+              &:hover {
+                opacity: .7;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .menuTriger {
+      border: 0;
+      outline: none;
+      background-color: transparent;
+      display: none;
+
+      @media (max-width:1300px) {
+        display: block;
+      }
+
+      img {
+        width: 24px;
+        height: 24px;
+        object-fit: contain;
+      }
+    }
+  }
+}
+
+.resNavWrapper {
+  width: 100%;
+  background-color: rgba($color: $primary, $alpha: 0.2);
+  padding: 10px 20px;
+  @extend .flexcenter;
+  position: fixed;
+  z-index: 99;
+  left: 0;
+  right: 0;
+  top: -500px;
+  transition: all .2s;
+
+  &.resNavActive {
+    top: 78px;
+    background-color: $white;
+
+    @media (max-width:600px) {
+      top: 59px;
+    }
+  }
+
+  @media (max-width:600px) {
+    padding: 20px 20px;
+  }
+
+  .navRes {
+    margin: 0;
+    padding: 0;
+    @extend .flexcenter;
+    gap: 20px;
+    flex-wrap: wrap;
+
+    list-style: none;
+    @extend .flexcenter;
+
+    @media (max-width:600px) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .navItem {
+      font-size: 16px;
+      color: $primary;
+      transition: all .2s;
+
+      &.active {
+        font-weight: bold;
+      }
+
+      &:hover {
+        opacity: .7;
+      }
+    }
+  }
+}
