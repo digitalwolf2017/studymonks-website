@@ -1,0 +1,141 @@
+@use "../../_styles/global.scss" as *;
+
+.innerWrapper {
+    width: 100%;
+    padding: 50px 20px;
+    min-height: calc(100svh - 78px);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+
+    @media (max-width:600px) {
+        min-height: calc(100svh - 59px);
+        padding: 20px 20px 50px;
+    }
+
+    .innerContainer {
+        width: 100%;
+        max-width: 900px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 40px;
+
+        @media (max-width:600px) {
+            gap: 20px;
+        }
+
+        .profileWrapper {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 20px;
+
+            @media (max-width:700px) {
+                flex-direction: column;
+            }
+        }
+
+        .profileInfo {
+            width: 100%;
+            border-radius: 12px;
+            background-color: $white;
+            padding: 30px 20px;
+            @extend .flexcenter;
+            flex-direction: column;
+            gap: 20px;
+            position: relative;
+
+            .editBtn {
+                width: 30px;
+                height: 30px;
+                background-color: $green;
+                @extend .flexcenter;
+                border: 0;
+                outline: none;
+                border-radius: 5px;
+                transition: all .2s;
+                position: absolute;
+                top: 10px;
+                right: 10px;
+
+                &:hover {
+                    opacity: .7;
+                }
+            }
+
+            .infoRow {
+                width: 100%;
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                gap: 10px;
+
+                p {
+                    font-size: 16px;
+                    color: rgba($color: $black, $alpha: 0.5);
+                    min-width: 130px;
+                    margin: 0;
+                }
+
+                h3 {
+                    font-size: 18px !important;
+                    color: $primary !important;
+                    margin: 0;
+                    font-weight: normal !important;
+                    text-transform: normal !important;
+                }
+
+                input {
+                    font-size: 18px !important;
+                    color: $primary !important;
+                    margin: 0;
+                    font-weight: normal !important;
+                    text-transform: normal !important;
+                    border: 0;
+                    outline: none;
+                    background-color: transparent;
+                }
+            }
+
+            .buttonWrapper {
+                width: 100%;
+                padding-top: 25px;
+                border-top: dashed 1px #ccc;
+                margin-top: 10px;
+            }
+        }
+
+        .referralsWrap {
+            width: 400px;
+            border-radius: 12px;
+            background-color: $white;
+            padding: 40px 20px;
+            @extend .flexcenter;
+            flex-direction: column;
+            gap: 15px;
+            border: 1px dashed #ccc;
+
+            @media (max-width:700px) {
+                width: 100%;
+            }
+
+            p {
+                font-size: 20px;
+                color: rgba($color: $black, $alpha: 0.5);
+                margin: 0;
+            }
+
+            h3 {
+                font-size: 30px !important;
+                color: $primary !important;
+                margin: 0;
+                font-weight: normal !important;
+                text-transform: normal !important;
+            }
+        }
+    }
+}

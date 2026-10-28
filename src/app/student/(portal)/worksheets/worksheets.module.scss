@@ -1,0 +1,248 @@
+.worksheetsWrapper {
+  padding: 30px;
+  max-width: 1400px;
+  margin: 0 auto;
+
+  @media (max-width: 768px) {
+    padding: 20px 14px;
+  }
+}
+
+.headerSection {
+  margin-bottom: 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  h1 {
+    font-size: 26px;
+    font-weight: 700;
+    color: #182C74;
+    margin-bottom: 6px;
+  }
+
+  p {
+    font-size: 14px;
+    color: #64748B;
+  }
+
+  .submitWorkBtn {
+    background: #309F5C;
+    color: #FFFFFF;
+    font-weight: 600;
+    font-size: 13px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.2s ease;
+
+    &:hover {
+      background: #248149;
+    }
+  }
+}
+
+.filterBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+
+  .statusTabs {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+
+    .tabBtn {
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      border: 1px solid #E2E8F0;
+      background: #FFFFFF;
+      color: #64748B;
+      cursor: pointer;
+      transition: all 0.2s ease;
+
+      &:hover {
+        border-color: #182C74;
+        color: #182C74;
+      }
+
+      &.active {
+        background: #182C74;
+        border-color: #182C74;
+        color: #FFFFFF;
+      }
+    }
+  }
+
+  .subjectSelect {
+    padding: 8px 16px;
+    border-radius: 10px;
+    border: 1px solid #CBD5E1;
+    background: #FFFFFF;
+    color: #1E293B;
+    font-size: 13px;
+    font-weight: 500;
+    outline: none;
+    cursor: pointer;
+
+    &:focus {
+      border-color: #182C74;
+    }
+  }
+}
+
+.sheetsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 650px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.sheetCard {
+  background: #FFFFFF;
+  border-radius: 16px;
+  border: 1px solid #EEF2F6;
+  padding: 22px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(24, 44, 116, 0.08);
+  }
+
+  .cardTop {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 14px;
+
+    .subjectBadge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      background: #EFF6FF;
+      color: #2563EB;
+    }
+
+    .statusPill {
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+
+      &.pending {
+        background: #FEF3C7;
+        color: #D97706;
+      }
+
+      &.submitted {
+        background: #E0E7FF;
+        color: #4F46E5;
+      }
+
+      &.graded {
+        background: #DCFCE7;
+        color: #16A34A;
+      }
+    }
+  }
+
+  .sheetTitle {
+    font-size: 16px;
+    font-weight: 700;
+    color: #0F172A;
+    margin-bottom: 8px;
+    line-height: 1.4;
+  }
+
+  .metaRow {
+    display: flex;
+    gap: 14px;
+    font-size: 12px;
+    color: #64748B;
+    margin-bottom: 16px;
+
+    span {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+  }
+
+  .cardActions {
+    display: flex;
+    gap: 10px;
+    padding-top: 14px;
+    border-top: 1px solid #F1F5F9;
+
+    .downloadBtn {
+      flex: 1;
+      padding: 9px;
+      border-radius: 8px;
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      color: #1E293B;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      text-decoration: none;
+      transition: background 0.2s;
+
+      &:hover {
+        background: #F1F5F9;
+      }
+    }
+
+    .actionLink {
+      flex: 1;
+      padding: 9px;
+      border-radius: 8px;
+      background: #182C74;
+      color: #FFFFFF;
+      font-size: 13px;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      transition: background 0.2s;
+
+      &:hover {
+        background: #122154;
+      }
+    }
+  }
+}
+

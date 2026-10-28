@@ -28,7 +28,7 @@ export default function NewHeaderCard() {
 
   React.useEffect(() => {
     if (!auth.loading && !auth.isLoggedIn) {
-      router.push("/login");
+      router.push("/student/login");
     }
   }, [auth.loading, auth.isLoggedIn, router]);
 
@@ -115,30 +115,32 @@ export default function NewHeaderCard() {
   /* -------------------- Logout -------------------- */
   const handleLogout = () => {
     auth.logout(); // clear token + user
-    router.push("/login"); // redirect
+    router.push("/student/login"); // redirect
   };
 
   const navItems = [
-    { label: "Dashboard", href: "/dashboard" },
-    { label: "My Learning", href: "/my-learning" },
+    { label: "Dashboard", href: "/student/dashboard" },
+    { label: "My Learning", href: "/student/my-learning" },
     { label: "Live Classes", href: "/live-classes" },
-    { label: "WorkSheets", href: "/worksheets" },
+    { label: "WorkSheets", href: "/student/worksheets" },
     { label: "MCQ Practices", href: "/mcq-practices" },
     { label: "Subscription", href: "/subscription" },
-    { label: "Order History", href: "/order-history" },
+    { label: "Order History", href: "/student/order-history" },
   ];
 
   return (
     <>
       <div className={styles.navWrapper}>
         <div className={styles.navLeftWrap}>
-          <Image
-            src={"/assets/images/logo.png"}
-            width={150}
-            height={24}
-            alt="icon"
-            className={styles.navLogo}
-          />
+          <Link href="/student/dashboard">
+            <Image
+              src={"/assets/images/logo.png"}
+              width={150}
+              height={24}
+              alt="icon"
+              className={styles.navLogo}
+            />
+          </Link>
 
           <div className={styles.navigationWrap}>
             <nav className={styles.nav}>
@@ -215,19 +217,30 @@ export default function NewHeaderCard() {
               <p>Hi, {user?.name || "User"}</p>
               <ul>
                 <li>
-                  <Link href="/my-account">My account</Link>
+                  <Link href="/student/my-account">My account</Link>
                 </li>
                 <li>
-                  <Link href="/my-subscription">My Subscriptions</Link>
+                  <Link href="/subscription">My Subscriptions</Link>
                 </li>
                 <li>
-                  <Link href="/my-account">My Referrals</Link>
+                  <Link href="/student/my-account">My Referrals</Link>
                 </li>
                 <br />
                 <li>
-                  <Link onClick={handleLogout} href={"/login"}>
+                  <button
+                    onClick={handleLogout}
+                    style={{
+                      background: "none",
+                      border: "none",
+                      color: "inherit",
+                      font: "inherit",
+                      cursor: "pointer",
+                      padding: 0,
+                    }}
+                    type="button"
+                  >
                     Logout
-                  </Link>
+                  </button>
                 </li>
               </ul>
             </div>

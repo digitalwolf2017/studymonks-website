@@ -1,0 +1,209 @@
+.learningWrapper {
+  padding: 30px;
+  max-width: 1400px;
+  margin: 0 auto;
+
+  @media (max-width: 768px) {
+    padding: 20px 14px;
+  }
+}
+
+.headerSection {
+  margin-bottom: 28px;
+
+  h1 {
+    font-size: 26px;
+    font-weight: 700;
+    color: #182C74;
+    margin-bottom: 6px;
+  }
+
+  p {
+    font-size: 14px;
+    color: #64748B;
+  }
+}
+
+.filterBar {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+
+  .filterBtn {
+    padding: 8px 18px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 600;
+    border: 1px solid #E2E8F0;
+    background: #FFFFFF;
+    color: #64748B;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+      border-color: #182C74;
+      color: #182C74;
+    }
+
+    &.active {
+      background: #182C74;
+      border-color: #182C74;
+      color: #FFFFFF;
+    }
+  }
+}
+
+.subjectsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 650px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.subjectCard {
+  background: #FFFFFF;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid #EEF2F6;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 28px rgba(24, 44, 116, 0.08);
+  }
+
+  .cardBanner {
+    height: 120px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    color: #FFFFFF;
+    position: relative;
+
+    .iconCircle {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(6px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+    }
+
+    .statusBadge {
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      background: rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  .cardBody {
+    padding: 22px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .subjectTitle {
+      font-size: 18px;
+      font-weight: 700;
+      color: #0F172A;
+      margin-bottom: 6px;
+    }
+
+    .curriculumLabel {
+      font-size: 13px;
+      color: #64748B;
+      margin-bottom: 16px;
+    }
+
+    .progressBarWrapper {
+      margin-bottom: 18px;
+
+      .progressText {
+        display: flex;
+        justify-content: space-between;
+        font-size: 12px;
+        font-weight: 600;
+        color: #475569;
+        margin-bottom: 6px;
+      }
+
+      .progressBarBg {
+        width: 100%;
+        height: 6px;
+        background: #F1F5F9;
+        border-radius: 999px;
+        overflow: hidden;
+
+        .progressBarFill {
+          height: 100%;
+          border-radius: 999px;
+          background: #309F5C;
+        }
+      }
+    }
+
+    .statsRow {
+      display: flex;
+      gap: 16px;
+      padding-top: 14px;
+      border-top: 1px solid #F1F5F9;
+      margin-bottom: 18px;
+
+      .statItem {
+        display: flex;
+        flex-direction: column;
+
+        .val {
+          font-size: 15px;
+          font-weight: 700;
+          color: #0F172A;
+        }
+
+        .lbl {
+          font-size: 11px;
+          color: #94A3B8;
+        }
+      }
+    }
+
+    .actionBtn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 11px;
+      border-radius: 10px;
+      background: #182C74;
+      color: #FFFFFF;
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.2s ease;
+
+      &:hover {
+        background: #122154;
+      }
+    }
+  }
+}
+

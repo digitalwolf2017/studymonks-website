@@ -1,13 +1,5 @@
-import Header from "@/app/_component/header/NewHeaderCard";
-import SubscriptionAttention from "@/app/_component/subscriptionAttention/SubscriptionAttention";
+import { redirect } from "next/navigation";
 
-export default function Dashboard() {
-  return (
-    <div>
-      {/* <Header /> */}
-      {/* <SubscriptionAttention /> */}
-      <h1>Dashboard</h1>
-      {/* <p>Welcome to your dashboard.</p> */}
-    </div>
-  );
+export default function DashboardRedirect() {
+  redirect("/student/dashboard");
 }

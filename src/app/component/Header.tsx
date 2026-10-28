@@ -6,9 +6,13 @@ import { useState } from "react";
 import React from "react";
 import { Button } from "@mui/material";
 import PopupForm from "../component/PopupForm";
+import { useAuth } from "@/auth/AuthContext";
+import { useRouter } from "next/navigation";
 
 function Header() {
   const [open, setOpen] = useState(false);
+  const { isLoggedIn, user } = useAuth();
+  const router = useRouter();
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -16,6 +20,18 @@ function Header() {
 
   const handleClose = () => {
     setOpen(false);
+  };
+
+  const handleLoginClick = () => {
+    if (isLoggedIn) {
+      if (user?.type === 1 || user?.account_type === 1) {
+        router.push("/admin/dashboard");
+      } else {
+        router.push("/student/dashboard");
+      }
+    } else {
+      router.push("/student/login");
+    }
   };
   return (
     <header>
@@ -135,7 +151,7 @@ function Header() {
                   className="btn btn-login"
                   type="button"
                   variant="contained"
-                  onClick={() => (window.location.href = "/login")}
+                  onClick={handleLoginClick}
                   style={{ color: "#fff" }}
                 >
                   <Image
@@ -145,7 +161,7 @@ function Header() {
                     height={20}
                     className="me-2"
                   />
-                  Login
+                  {isLoggedIn ? "Dashboard" : "Login"}
                 </Button>
               </div>
             </nav>
